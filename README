@@ -1,0 +1,45 @@
+Prerequisites:
+- iterm2
+- zsh
+- oh-my-zsh
+- starship
+- neovim
+- tmux
+- spicetify
+
+Neovim Prerequisites:
+- fzf
+- rg
+- fg
+
+Tmux Prerequisites:
+- tpm
+
+Spicetify Prerequities:
+- spotify
+
+Neovim Plugins:
+- vim-tmux-navigator
+- oil.nvim
+- telescope
+- treesitter
+- nordic.nvim
+- lualine
+- mason
+- nvim-lspconfig
+- mason-lspconfig
+- none-ls
+- mason-null-ls
+- cmp-nvim-lsp
+- nvim-cmp
+
+Tmux Plugins:
+- tpm
+- tmux-sensible
+- vim-tmux-navigator
+- nord-tmux
+
+Other tools i use:
+- raycast
+- yazi
+- zoxide
