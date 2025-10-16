@@ -1,0 +1,133 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+[█](color_nord1)\
+$os\
+[](fg:color_nord1 bg:color_nord2)\
+$directory\
+[](fg:color_nord2 bg:color_nord3)\
+$git_branch\
+$git_status\
+[](fg:color_nord3 bg:color_terraform)\
+$terraform\
+[](fg:color_terraform bg:color_nord5)\
+$time\
+[ ](fg:color_nord5)\
+$fill\
+[ ](fg:color_kubernetes)\
+$kubernetes\
+[](fg:color_aws bg:color_kubernetes)\
+$aws\
+[█](color_aws)\
+$line_break$character"""
+
+palette = 'gruvbox_dark'
+
+[fill]
+symbol = '─'
+style = 'fg:240'
+
+[palettes.gruvbox_dark]
+color_fg0 = '#fbf1c7'
+color_fg1 = '#2e3440'
+color_nord1 = '#5e81ac'
+color_nord2 = '#81a1c1'
+color_nord3 = '#a3be8c'
+color_terraform = '#A067DA'
+color_nord5 = '#5e81ac'
+color_kubernetes = '#5e81ac'
+color_aws = '#ebcb8b'
+
+[terraform]
+symbol = '󱁢'
+style = "fg:color_fg1 bg:color_terraform"
+format = '[ $symbol $workspace ]($style)'
+
+
+[os]
+disabled = false
+style = "bg:color_nord1 fg:color_fg0"
+format = "[$symbol ]($style)"
+
+[os.symbols]
+Windows = "󰍲"
+Ubuntu = "󰕈"
+SUSE = ""
+Raspbian = "󰐿"
+Mint = "󰣭"
+Macos = "󰀵"
+Manjaro = ""
+Linux = "󰌽"
+Gentoo = "󰣨"
+Fedora = "󰣛"
+Alpine = ""
+Amazon = ""
+Android = ""
+Arch = "󰣇"
+Artix = "󰣇"
+EndeavourOS = ""
+CentOS = ""
+Debian = "󰣚"
+Redhat = "󱄛"
+RedHatEnterprise = "󱄛"
+Pop = ""
+
+[username]
+show_always = true
+style_user = "bg:color_nord1 fg:color_fg0"
+style_root = "bg:color_nord1 fg:color_fg0"
+format = '[ $user ]($style)'
+
+[directory]
+style = "fg:color_fg0 bg:color_nord2"
+format = "[ ﱮ $path ]($style)"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = "󰝚 "
+"Pictures" = " "
+"Developer" = "󰲋 "
+
+[git_branch]
+symbol = ""
+style = "bg:color_nord3"
+format = '[[ $symbol $branch ](fg:color_fg1 bg:color_nord3)]($style)'
+
+
+[git_status]
+style = "bg:color_nord3"
+format = '[[($all_status$ahead_behind )](fg:color_fg1 bg:color_nord3)]($style)'
+
+[time]
+disabled = false
+time_format = "%R"
+style = "bg:color_bg1"
+format = '[[  $time ](fg:color_fg0 bg:color_nord5)]($style)'
+
+[line_break]
+disabled = false
+
+[character]
+disabled = false
+success_symbol = '[➜ :](bold fg:color_green)'
+error_symbol = '[➜ :](bold fg:color_red)'
+vimcmd_symbol = '[➜ >](bold fg:color_green)'
+vimcmd_replace_one_symbol = '[➜ >](bold fg:color_purple)'
+vimcmd_replace_symbol = '[➜ >](bold fg:color_purple)'
+vimcmd_visual_symbol = '[➜ >](bold fg:color_yellow)'
+
+[aws]
+format = '[ $symbol($profile) ]($style)'
+disabled = false
+style = 'fg:color_fg1 bg:color_aws'
+symbol = " "
+
+[env_var.AWS_PROFILE]
+default = 'unknown user'
+
+[kubernetes]
+symbol = '☸ '
+disabled = false
+style = "bg:color_kubernetes fg:color_fg0"
+format = '[ $symbol$context( \($namespace\)) ]($style)'
