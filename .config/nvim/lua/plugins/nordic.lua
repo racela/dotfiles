@@ -54,9 +54,13 @@ return {
 				-- Enables dark background for treesitter-context window
 				dark_background = true,
 			},
+      on_highlight = function(highlights, palette)
+        highlights.DiffAdd = { bg = "#335533" }
+        highlights.DiffChange = { bg = "#4c566a" }
+        highlights.DiffDelete = { bg = "#553333" }
+        highlights.DiffText = { bg = "#5e81ac", bold = true }
+      end,
 		})
-
-
 		vim.cmd.colorscheme("nordic")
 	end,
 }

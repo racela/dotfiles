@@ -36,7 +36,7 @@ return {
 					null_ls.builtins.diagnostics.kube_linter,
 					null_ls.builtins.diagnostics.actionlint,
 					null_ls.builtins.diagnostics.yamllint,
-					null_ls.builtins.formatting.ymlfmt,
+					null_ls.builtins.formatting.yamlfmt,
 				},
 			})
 
