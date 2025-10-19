@@ -59,6 +59,8 @@ return {
         highlights.DiffChange = { bg = "#4c566a" }
         highlights.DiffDelete = { bg = "#553333" }
         highlights.DiffText = { bg = "#5e81ac", bold = true }
+        highlights.LineNr = { fg = "#708090" }
+        highlights.Comment = { fg = "#536878" }
       end,
 		})
 		vim.cmd.colorscheme("nordic")

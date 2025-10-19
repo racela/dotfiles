@@ -33,3 +33,4 @@ type starship_zle-keymap-select >/dev/null || \
   } 
 
 export PATH=$PATH:/Users/rafaracela/.spicetify
+export TERM=xterm-256color
