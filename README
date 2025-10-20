@@ -1,16 +1,18 @@
 Prerequisites:
-- iterm2
+- ghostty
 - zsh
 - oh-my-zsh
 - starship
 - neovim
 - tmux
 - spicetify
+- stow
 
 Neovim Prerequisites:
 - fzf
 - rg
-- fg
+- fd
+- terraform-ls
 
 Tmux Prerequisites:
 - tpm
