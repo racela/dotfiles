@@ -11,7 +11,7 @@ return {
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"lua_ls",
-					"dockerls",
+					"docker_language_server",
 					"jsonls",
 					"terraformls",
 					"yamlls",

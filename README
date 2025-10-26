@@ -8,17 +8,34 @@ Prerequisites:
 - spicetify
 - stow
 
+stow:
+- stow -t ~ common
+- stow -t ~ <arch|linux>
+
+Oh My ZSH Plugins:
+- git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+- git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
 Neovim Prerequisites:
 - fzf
 - rg
 - fd
+- node
+- unzip
 - terraform-ls
+- Iosevka font
 
 Tmux Prerequisites:
 - tpm
 
 Spicetify Prerequities:
 - spotify
+
+Install Spicetify:
+- curl -fsSL https://raw.githubusercontent.com/spicetify/cli/main/install.sh | sh
+- git clone --depth=1 https://github.com/spicetify/spicetify-themes.git
+- cp -r spicetify-themes/Dribbblish ~/.config/spicetify/Themes
+- spicetify update
 
 Neovim Plugins:
 - vim-tmux-navigator

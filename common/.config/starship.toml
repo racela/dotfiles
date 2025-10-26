@@ -80,7 +80,7 @@ format = '[ $user ]($style)'
 
 [directory]
 style = "fg:color_fg0 bg:color_nord2"
-format = "[ ﱮ $path ]($style)"
+format = "[ 󰝰 $path ]($style)"
 
 [directory.substitutions]
 "Documents" = "󰈙 "
