@@ -5,34 +5,50 @@ This is a repository of how I setup my environment for Arch Linux and MacOS.
 
 Ensure these are installed as these are the applications that will be configured by this repo
 ### 1. [Ghostty](https://github.com/ghostty-org/ghostty)
+
 `sudo pacman -S ghostty`
+
 ### 2. Zsh
+
 ```
 sudo pacman -S zsh
 chsh -s $(which zsh)
 ```
+
 ### 3. [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)
 Install oh-my-zsh:
+
 `sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
 
 Install oh-my-zsh plugins:
+
 ```
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 ```
 
 ### 4. [Starship](https://github.com/starship/starship)
+
 `sudo pacman -S starship`
+
 ### 5. [Neovim](https://github.com/neovim/neovim)
+
 `sudo pacman -S neovim`
+
 ### 6. [tmux](https://github.com/tmux/tmux/wiki)
+
 `sudo pacman -S tmux`
+
 ### 7. [spicetify](https://github.com/spicetify)
+
 `sudo pacman -S spicetify`
+
 ### 8. [GNU Stow](https://www.gnu.org/software/stow/)
+
 `sudo pacman -S stow`
 
 ## Arch Linux Prerequisites
+
 *Might move Arch Linux install to another doc
 1. sddm
 2. hyprland
@@ -48,9 +64,10 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 	* `sudo modprobe i2c-dev`
 
 ## Create symlinks:
+
 ```
 stow -t ~ common
-stow -t ~ <arch|linux>
+stow -t ~ `<arch|linux>`
 ```
 
 
