@@ -4,22 +4,25 @@
   "modules-center": ["hyprland/window"],
   "modules-right": ["network", "pulseaudio", "clock"],
   "clock": {
-    "format": "<span foreground='#f5c2e7'>   </span>{:%a %d %H:%M}",
+    "format": "<span foreground='#a3be8c'>   </span>{:%a %d %H:%M}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
   },
   "network": {
-    "format-wifi": "<span size='13000' foreground='#f5e0dc'>  </span>{essid}",
-    "format-ethernet": "<span size='13000' foreground='#f5e0dc'>󰤭  </span> Disconnected",
+    "format-wifi": "<span size='13000' foreground='#5e81ac'>  </span>{essid}",
+    "format-ethernet": "<span size='13000' foreground='#5e81ac'>󰈀 </span> {ipaddr}/{cidr}",
     "format-linked": "{ifname} (No IP) ",
-    "format-disconnected": "<span size='13000' foreground='#f5e0dc'>  </span>Disconnected",
-    "tooltip-format-wifi": "Signal Strenght: {signalStrength}%"
+    "format-disconnected": "<span size='13000' foreground='#5e81ac'>  </span>Disconnected",
+    "tooltip-format-wifi": "Signal Strength: {signalStrength}%"
   },
   "pulseaudio": {
       "format": "{icon}  {volume}%",
       "format-muted": "",
       "format-icons": {
-          "default": ["", "", " "]
+        "default": ["", "", ""]
       },
-      "on-click": "pavucontrol"
+      "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+      "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+      "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
+      "tooltip": false
   }
 }

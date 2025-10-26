@@ -1,4 +1,5 @@
 @import "mocha.css"; 
+@import "nord.css"; 
 
 * {
     font-family: "Iosevka";
@@ -8,8 +9,7 @@
 }
 
 window#waybar {
-    background: transparent;
-    background-color: @crust;
+    background: rgba(30, 30, 46, 0.75);
     color: @overlay0;
     transition-property: background-color;
     transition-duration: 0.1s;
@@ -24,14 +24,15 @@ window#waybar {
 
 button {
     box-shadow: inset 0 -3px transparent;
+    color: white;
     border: none;
     border-radius: 0;
 }
 
 button:hover {
     background: inherit;
-    color: @mauve;
-    border-top: 2px solid @mauve;
+    color: white;
+    border-top: 2px solid white;
 }
 
 #workspaces button {
@@ -46,8 +47,8 @@ button:hover {
 
 #workspaces button.active {
     background-color: rgba(0, 0, 0, 0.3);
-    color: @mauve;
-    border-top: 2px solid @mauve;
+    color: white;
+    border-top: 2px solid white;
 }
 
 #workspaces button.urgent {
@@ -76,23 +77,23 @@ button:hover {
 }
 
 #clock {
-    color: @maroon;
-    border-bottom: 2px solid @maroon;
+    color: @nord-3;
+    border-bottom: 2px solid @nord-3;
 }
 
 #clock.date {
-    color: @mauve;
-    border-bottom: 2px solid @mauve;
+    color: @nord-3;
+    border-bottom: 2px solid @nord-3;
 }
 
 #pulseaudio {
-    color: @blue;
-    border-bottom: 2px solid @blue;
+    color: @nord-2;
+    border-bottom: 2px solid @nord-2;
 }
 
 #network {
-    color: @yellow;
-    border-bottom: 2px solid @yellow;
+    color: @nord-1;
+    border-bottom: 2px solid @nord-1;
 }
 
 #idle_inhibitor {
