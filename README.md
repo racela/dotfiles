@@ -1,19 +1,47 @@
 # Dotfiles
-This is a repository of how I setup my environment for Arch Linux and MacOS.
+This is a repository of how I setup my environment for Arch Linux and macOS.
 
-## Prerequisites
+## Arch Linux Config
+1. sddm
+2. hyprland
+3. hyprpaper
+4. hypridle
+5. hyprshot
+6. hyprpicker
+7. dolphin
+8. waybar
+9. wofi
+10. swaync
+11. ddcutil
+		 `sudo modprobe i2c-dev`
+12. ghostty
+13. spicetify
+14. firefox
 
-Ensure these are installed as these are the applications that will be configured by this repo
+## macOS Config
+1. ghostty
+2. spicetify
+3. chrome
+
+## Terminal (Ghostty) Setup Guide
+
 ### 1. [Ghostty](https://github.com/ghostty-org/ghostty)
 
+**Arch Linux:**
 `sudo pacman -S ghostty`
+
+**macOS:**
+`brew install ghostty`
 
 ### 2. Zsh
 
+**Arch Linux:**
 ```
 sudo pacman -S zsh
 chsh -s $(which zsh)
 ```
+**macOS:**
+> Zsh is already the default shell on macOS
 
 ### 3. [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)
 Install oh-my-zsh:
@@ -29,47 +57,40 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 
 ### 4. [Starship](https://github.com/starship/starship)
 
+**Arch Linux:**
 `sudo pacman -S starship`
+
+**macOS:**
+`brew install starship`
 
 ### 5. [Neovim](https://github.com/neovim/neovim)
 
+**Arch Linux:**
 `sudo pacman -S neovim`
+
+**macOS:**
+`brew install neovim`
 
 ### 6. [tmux](https://github.com/tmux/tmux/wiki)
 
+**Arch Linux:**
 `sudo pacman -S tmux`
+
+**macOS:**
+`brew install tmux`
 
 ### 7. [spicetify](https://github.com/spicetify)
 
+**Arch Linux:**
 `sudo pacman -S spicetify`
+
+**macOS:**
+`brew install spicetify`
 
 ### 8. [GNU Stow](https://www.gnu.org/software/stow/)
 
 `sudo pacman -S stow`
-
-## Arch Linux Prerequisites
-
-*Might move Arch Linux install to another doc
-1. sddm
-2. hyprland
-3. hyprpaper
-4. hypridle
-5. hyprshot
-6. hyprpicker
-7. dolphin
-8. waybar
-9. wofi
-10. swaync
-11. ddcutil
-	* `sudo modprobe i2c-dev`
-
-## Create symlinks:
-
-```
-stow -t ~ common
-stow -t ~ `<arch|linux>`
-```
-
+`brew install stow`
 
 ## Neovim Prerequisites:
 ### 1. [fzf](https://github.com/junegunn/fzf)
@@ -90,6 +111,11 @@ Not available for Arch Linux
 ## Tmux Prerequisites:
 ### 1. tpm
 `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
+### 2. Install plugins
+```
+tmux			 # launch tmux
+<leader>+SHIFT+I # command to install plugins
+```
 
 ## Spicetify Prerequities:
 ### 1. Spotify
@@ -103,33 +129,41 @@ cp -r spicetify-themes/Dribbblish ~/.config/spicetify/Themes
 spicetify update
 ```
 
+## Create symlinks:
+
+```
+stow -t ~ common
+stow -t ~ `<arch|linux>`
+```
+
 ## Neovim Plugins:
 These will be installed automatically by Neovim once launched
-- vim-tmux-navigator
-- oil.nvim
-- telescope
-- treesitter
-- nordic.nvim
-- lualine
-- mason
-- nvim-lspconfig
-- mason-lspconfig
-- none-ls
-- mason-null-ls
-- cmp-nvim-lsp
-- nvim-cmp
+- [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
+- [oil.nvim](https://github.com/stevearc/oil.nvim)
+- [telescope](https://github.com/nvim-telescope/telescope.nvim)
+- [treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+- [nordic.nvim](https://github.com/AlexvZyl/nordic.nvim)
+- [lualine](https://github.com/nvim-lualine/lualine.nvim)
+- [mason](https://github.com/mason-org/mason.nvim)
+- [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
+- [mason-lspconfig](https://github.com/mason-org/mason-lspconfig.nvim)
+- [none-ls](https://github.com/nvimtools/none-ls.nvim)
+- [mason-null-ls](https://github.com/jay-babu/mason-null-ls.nvim)
+- [cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
+- [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 
 ## Tmux Plugins:
 These will be installed by tmux after running `<leader>+SHIFT+I` inside tmux
-- tpm
-- tmux-sensible
-- vim-tmux-navigator
-- nord-tmux
+- [tpm](https://github.com/tmux-plugins/tpm)
+- [tmux-sensible](https://github.com/tmux-plugins/tmux-sensible)
+- [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
+- [nord-tmux](https://github.com/nordtheme/tmux)
 
 ## Other tools I use:
-- raycast (Mac)
-- yazi
-- zoxide
-- jq
-- htop
+- [raycast (Mac)](https://www.raycast.com/)
+- [yazi](https://github.com/sxyazi/yazi)
+- [zoxide](https://github.com/ajeetdsouza/zoxide)
+- [jq](https://github.com/jqlang/jq)
+- [htop](https://github.com/htop-dev/htop)
+
 

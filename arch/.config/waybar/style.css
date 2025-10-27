@@ -2,8 +2,8 @@
 @import "nord.css"; 
 
 * {
-    font-family: "Iosevka";
-    font-size: 16px;
+    font-family: "Iosevka Term Extended";
+    font-size: 15px;
     min-height: 0;
     font-weight: bold;
 }
@@ -56,6 +56,9 @@ button:hover {
 }
 
 #pulseaudio,
+#custom-updates,
+#custom-spotify,
+#custom-wlogout,
 #clock,
 #battery,
 #cpu,
@@ -72,28 +75,44 @@ button:hover {
   margin-bottom: 2px;
   margin-left: 4px;
   margin-right: 4px;
-  padding-left: 4px;
-  padding-right: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#custom-wlogout {
+    font-size: 20px;
+    color: #1793d1;
+}
+
+#custom-wlogout:hover {
+    color: #1793d1;
+    font-size: 20px;
+    border-top: 2px solid #1793d1;
+}
+
+#custom-updates {
+    color: #aaaaaa;
+    border-bottom: 2px solid #aaaaaa;
 }
 
 #clock {
-    color: @nord-3;
-    border-bottom: 2px solid @nord-3;
+    color: #aaaaaa;
+    border-bottom: 2px solid #aaaaaa;
 }
 
 #clock.date {
     color: @nord-3;
-    border-bottom: 2px solid @nord-3;
+    border-bottom: 2px solid #aaaaaa;
 }
 
 #pulseaudio {
-    color: @nord-2;
-    border-bottom: 2px solid @nord-2;
+    color: #aaaaaa;
+    border-bottom: 2px solid #aaaaaa;
 }
 
 #network {
-    color: @nord-1;
-    border-bottom: 2px solid @nord-1;
+    color: #aaaaaa;
+    border-bottom: 2px solid #aaaaaa;
 }
 
 #idle_inhibitor {

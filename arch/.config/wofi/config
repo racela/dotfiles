@@ -1,6 +1,8 @@
+width=30%
+height=20%
 mode=drun
 allow_images=true
-image_size=20
+image_size=18
 term=ghostty
 insensitive=true
 location=center

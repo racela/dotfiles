@@ -1,28 +1,65 @@
 {
   "position": "top",
-  "modules-left": ["hyprland/workspaces"],
+  "modules-left": ["custom/wlogout", "hyprland/workspaces", "custom/spotify"],
   "modules-center": ["hyprland/window"],
-  "modules-right": ["network", "pulseaudio", "clock"],
+  "modules-right": ["custom/updates", "network", "pulseaudio", "clock"],
+  "custom/updates": {
+    "format": "<span foreground='#aaaaaa'>{icon} </span>{text}",
+    "return-type": "json",
+    "format-icons": {
+      "has-updates": "󱍷",
+      "updated": ""
+    },
+    "exec-if": "which waybar-module-pacman-updates",
+    "exec": "waybar-module-pacman-updates --no-zero-output"
+  },
   "clock": {
-    "format": "<span foreground='#a3be8c'>   </span>{:%a %d %H:%M}",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    "format": "{:%a %d %H:%M}",
+    "tooltip-format": "<tt><big><span font='Iosevka Term Extended'>{calendar}</span></big></tt>",
+    "calendar": {
+      "format": {
+        "months":     "<span color='#ffead3'><b>{}</b></span>",
+        "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+        "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+        "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions":  {
+      "on-click-right": "mode",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
   },
   "network": {
-    "format-wifi": "<span size='13000' foreground='#5e81ac'>  </span>{essid}",
-    "format-ethernet": "<span size='13000' foreground='#5e81ac'>󰈀 </span> {ipaddr}/{cidr}",
+    "format-wifi": "<span size='13000' foreground='#aaaaaa'>  </span>{essid}",
+    "format-ethernet": "<span size='13000' foreground='#aaaaaa'>󰈀</span>",
     "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "<span size='13000' foreground='#5e81ac'>  </span>Disconnected",
+    "tooltip-format-ethernet": "Connected via Ethernet\nInterface: {ifname}\nIP: {ipaddr}\nGateway: {gwaddr}",
     "tooltip-format-wifi": "Signal Strength: {signalStrength}%"
   },
   "pulseaudio": {
-      "format": "{icon}  {volume}%",
-      "format-muted": "",
+      "format": "{icon}",
+      "format-muted": "",
       "format-icons": {
         "default": ["", "", ""]
       },
       "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
       "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
       "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
-      "tooltip": false
+      "tooltip-format": "{desc} - {volume}%"
+  },
+  "custom/wlogout": {
+    "format": "󰣇",
+    "on-click": "wlogout",
+    "tooltip": false
+  },
+  "custom/spotify": {
+    "exec": "python $HOME/.config/waybar/mediaplayer.py --player spotify",
+    "format": "{text}  ",
+    "return-type": "json",
+    "on-click": "playerctl play-pause",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous"
   }
 }
