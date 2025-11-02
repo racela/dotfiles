@@ -1,0 +1,64 @@
+* {
+  color: rgba(255,255,255,0.7);
+}
+
+window {
+  font-family: "Iosevka Term Extended";
+  font-size: 16pt;
+  background-color: rgba(24,27,32,0.2);
+}
+
+button {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20%;
+  min-width: 200px;
+  background-color: rgba(76, 86, 106, 0.7);
+  box-shadow: 0 0 10px 2px transparent;
+  border-radius: 36px;
+  margin: 50px 80px;
+  padding: 30px;
+  border-color: black;
+  color: black;
+}
+
+button:focus {
+  box-shadow: none;
+}
+
+button:hover {
+  background-size: 40%;
+  box-shadow: 0 0 10px 3px rgba(0,0,0,.4);
+  background-color: #81a1c1;
+  transition: background-size 0.5s, box-shadow 0.5s ease;
+  font-size: 0;
+}
+
+/* button:focus, button:active, button:hover { */
+/* 	background-color: #5e81ac; */
+/* 	outline-style: none; */
+/* } */
+
+#lock {
+    background-image: image(url("/usr/share/wlogout/assets/lock.svg"), url("/usr/local/share/wlogout/assets/lock.svg"));
+}
+
+#logout {
+    background-image: image(url("/usr/share/wlogout/assets/logout.svg"), url("/usr/local/share/wlogout/assets/logout.svg"));
+}
+
+#suspend {
+    background-image: image(url("/usr/share/wlogout/assets/suspend.svg"), url("/usr/local/share/wlogout/assets/suspend.svg"));
+}
+
+#hibernate {
+    background-image: image(url("/usr/share/wlogout/assets/hibernate.svg"), url("/usr/local/share/wlogout/assets/hibernate.svg"));
+}
+
+#shutdown {
+    background-image: image(url("/usr/share/wlogout/assets/shutdown.svg"), url("/usr/local/share/wlogout/assets/shutdown.svg"));
+}
+
+#reboot {
+    background-image: image(url("/usr/share/wlogout/assets/reboot.svg"), url("/usr/local/share/wlogout/assets/reboot.svg"));
+}

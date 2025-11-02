@@ -1,0 +1,6 @@
+qt6ct-kde
+timeshift-autosnap
+waybar-module-pacman-updates-git
+wlogout
+yay
+yay-debug
