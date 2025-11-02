@@ -1,27 +1,90 @@
 {
   "position": "top",
-  "modules-left": ["custom/wlogout", "hyprland/workspaces", "custom/spotify"],
+
+  "modules-left": ["custom/wlogout", "hyprland/workspaces", "cpu", "memory", "custom/spotify"],
   "modules-center": ["hyprland/window"],
-  "modules-right": ["custom/updates", "network", "pulseaudio", "clock"],
+  "modules-right": ["custom/github", "custom/updates", "network", "pulseaudio", "clock"],
+
+  "cpu": {
+    "interval": 10,
+    "format": " {usage}%",
+    "max-length": 10
+  },
+
+  "memory": {
+    "interval": 30,
+    "format": " {}%",
+    "max-length": 10
+  },
+
+  "custom/spotify": {
+    "exec": "python $HOME/.config/waybar/mediaplayer.py --player spotify",
+    "exec-if": "pgrep spotify",
+    "format": "{text}  ",
+    "max-length": 40,
+    "return-type": "json",
+    "on-click": "playerctl -p spotify play-pause",
+    "on-click-right": "killall spotify",
+    "smooth-scrolling-threshold": 2, 
+    "on-scroll-up" : "playerctl -p spotify next",
+    "on-scroll-down" : "playerctl -p spotify previous"
+  },
+
+  "hyprland/window": {
+    "tooltip": false
+  },
+
+  "custom/github": {
+    "format": "<span size='14000'>  </span>{text}",
+    "interval": 300,
+    "return-type": "json",
+    "tooltip": true,
+    "on-click": "xdg-open https://github.com/racela/home-server-argocd/pulls",
+    "exec": "$HOME/.config/waybar/github.sh"
+  },
   "custom/updates": {
-    "format": "<span foreground='#aaaaaa'>{icon} </span>{text}",
+    "format": "<span size='13000'>{icon} </span>{text}",
     "return-type": "json",
     "format-icons": {
-      "has-updates": "󱍷",
-      "updated": ""
+      "has-updates": "󱍷 ",
+      "updated": " "
     },
     "exec-if": "which waybar-module-pacman-updates",
-    "exec": "waybar-module-pacman-updates --no-zero-output"
+    "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 300"
+  },
+  "network": {
+    "format-wifi": "<span size='13000'>  </span>{essid}",
+    "format-ethernet": "<span size='13000'>󰈀</span>",
+    "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": "<span size='13000' foreground='#5e81ac'>  </span>Disconnected",
+    "tooltip-format-ethernet": "Connected via Ethernet\nInterface: {ifname}\nIP: {ipaddr}\nGateway: {gwaddr}",
+    "tooltip-format-wifi": "Signal Strength: {signalStrength}%"
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": " {volume}%",
+    "format-icons": {
+      "default": ["", "", ""]
+    },
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
+    "tooltip-format": "{desc} - {volume}%"
+  },
+  "custom/wlogout": {
+    "format": "󰣇",
+    "on-click": "wlogout",
+    "tooltip": false
   },
   "clock": {
-    "format": "{:%a %d %H:%M}",
+    "format": "󰃶 {:%a %d %H:%M}",
     "tooltip-format": "<tt><big><span font='Iosevka Term Extended'>{calendar}</span></big></tt>",
     "calendar": {
       "format": {
-        "months":     "<span color='#ffead3'><b>{}</b></span>",
-        "days":       "<span color='#ecc6d9'><b>{}</b></span>",
-        "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
-        "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+        "months":     "<span color='#8fbcbb'><b>{}</b></span>",
+        "days":       "<span color='white'><b>{}</b></span>",
+        "weekdays":   "<span color='white'><b>{}</b></span>",
+        "today":      "<span color='#ebcb8b'><b>{}</b></span>"
       }
     },
     "actions":  {
@@ -29,37 +92,5 @@
       "on-scroll-up": "shift_up",
       "on-scroll-down": "shift_down"
     }
-  },
-  "network": {
-    "format-wifi": "<span size='13000' foreground='#aaaaaa'>  </span>{essid}",
-    "format-ethernet": "<span size='13000' foreground='#aaaaaa'>󰈀</span>",
-    "format-linked": "{ifname} (No IP) ",
-    "format-disconnected": "<span size='13000' foreground='#5e81ac'>  </span>Disconnected",
-    "tooltip-format-ethernet": "Connected via Ethernet\nInterface: {ifname}\nIP: {ipaddr}\nGateway: {gwaddr}",
-    "tooltip-format-wifi": "Signal Strength: {signalStrength}%"
-  },
-  "pulseaudio": {
-      "format": "{icon}",
-      "format-muted": "",
-      "format-icons": {
-        "default": ["", "", ""]
-      },
-      "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-      "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
-      "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
-      "tooltip-format": "{desc} - {volume}%"
-  },
-  "custom/wlogout": {
-    "format": "󰣇",
-    "on-click": "wlogout",
-    "tooltip": false
-  },
-  "custom/spotify": {
-    "exec": "python $HOME/.config/waybar/mediaplayer.py --player spotify",
-    "format": "{text}  ",
-    "return-type": "json",
-    "on-click": "playerctl play-pause",
-    "on-scroll-up": "playerctl next",
-    "on-scroll-down": "playerctl previous"
   }
 }

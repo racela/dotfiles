@@ -1,21 +1,22 @@
-@define-color	mauve  #5e81ac;
 @define-color	red  #f38ba8;
-@define-color	lavender  #5e81ac;
+@define-color	nord-1  #5e81ac;
 @define-color	text  white;
-@define-color	base  #4c566a;
+@define-color	nord-base  #4c566a;
+@define-color	nord-base-transparent  rgba(76, 86, 106, 0.2);
 
 * {
   font-family: 'Iosevka Term Extended';
-  font-size: 15px;
+  font-weight: 1000;
+  font-size: 16px;
 }
 
 /* Window */
 window {
   margin: 0px;
   padding: 0px;
-  border: 2px solid @lavender;
+  border: 2px solid @nord-1;
   border-radius: 8px;
-  background-color: @base;
+  background-color: @nord-base-transparent;
 }
 
 /* Inner Box */
@@ -23,7 +24,7 @@ window {
   margin: 0px;
   padding: 0px;
   border: none;
-  background-color: @base;
+  background-color: @nord-base-transparent;
 }
 
 /* Outer Box */
@@ -31,7 +32,7 @@ window {
   margin: 5px;
   padding: 5px;
   border: none;
-  background-color: @base;
+  background-color: @nord-base-transparent;
 }
 
 /* Scroll */
@@ -39,17 +40,17 @@ window {
   margin: 0px;
   padding: 10px;
   border: none;
-  background-color: @base;
+  background-color: @nord-base;
 }
 
 /* Input */
 #input {
-  margin: 5px 20px;
-  padding: 10px;
+  margin-bottom: 10px;
+  padding: 15px 15px;
   border: none;
   border-radius: 0.1em;
   color: @text;
-  background-color: @base;
+  background-color: @nord-base;
   caret-color: @text;
 }
 
@@ -58,6 +59,7 @@ window {
 }
 
 #input image {
+    margin-right: 10px;
     border: none;
     color: white;
 }
@@ -74,12 +76,13 @@ window {
 }
 
 #entry {
-  background-color: @base;
+  background-color: @nord-base;
+  padding: 15px;
 }
 
 #entry arrow {
   border: none;
-  color: @lavender;
+  color: @nord-1;
 }
 
 /* Selected Entry */
@@ -90,11 +93,11 @@ window {
 }
 
 #entry:selected #text {
-  color: @base;
+  color: @nord-base;
 }
 
 #entry:drop(active) {
-  background-color: @lavender!important;
+  background-color: @nord-1!important;
 }
 
 #img {
