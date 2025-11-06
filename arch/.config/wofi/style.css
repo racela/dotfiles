@@ -24,12 +24,12 @@
 @define-color selected @nord-frost-3;
 @define-color	text-selected  @nord-night-1;
 @define-color	nord-base  @nord-night-3;
-@define-color	nord-base-transparent rgba(76, 86, 106, 0.2);
+@define-color	nord-base-transparent rgba(76, 86, 106, 0.3);
 
 * {
   font-family: 'Iosevka Term Extended';
   font-weight: 1000;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 /* Window */
@@ -60,9 +60,8 @@ window {
 /* Scroll */
 #scroll {
   margin: 0px;
-  padding: 10px;
   border: none;
-  background-color: @nord-base;
+  background-color: @nord-base-transparent;
 }
 
 /* Input */
@@ -72,7 +71,7 @@ window {
   border: none;
   border-radius: 0.1em;
   color: @text;
-  background-color: @nord-base;
+  background-color: @nord-base-transparent;
   caret-color: @text;
 }
 
@@ -98,7 +97,7 @@ window {
 }
 
 #entry {
-  background-color: @nord-base;
+  background-color: @nord-base-transparent;
   padding: 15px;
 }
 

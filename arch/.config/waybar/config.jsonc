@@ -31,7 +31,8 @@
   },
 
   "hyprland/window": {
-    "tooltip": false
+    "tooltip": false,
+    "max-length": 100
   },
 
   "custom/github": {

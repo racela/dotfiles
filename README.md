@@ -23,6 +23,15 @@ This is a repository of how I setup my environment for Arch Linux and macOS.
 2. spicetify
 3. chrome
 
+# Dolphin theme
+
+
+# Icon theme
+➜ : gtk-update-icon-cache -f -t .local/share/icons
+gtk-update-icon-cache: Cache file created successfully.
+
+➜ : gsettings set org.gnome.desktop.interface icon-theme "Nordzy-dark"
+
 ## Terminal (Ghostty) Setup Guide
 
 ### 1. [Ghostty](https://github.com/ghostty-org/ghostty)
