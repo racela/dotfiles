@@ -34,3 +34,4 @@ type starship_zle-keymap-select >/dev/null || \
 
 export PATH=$PATH:/home/rafa/.spicetify
 export TERM=xterm-256color
+export PATH="$HOME/.local/bin:$PATH"
