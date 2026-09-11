@@ -3,7 +3,7 @@
 
   "modules-left": ["custom/wlogout", "hyprland/workspaces", "cpu", "memory", "custom/spotify"],
   "modules-center": ["hyprland/window"],
-  "modules-right": ["custom/github", "custom/updates", "network", "pulseaudio", "clock"],
+  "modules-right": ["custom/ha-bedroom-light", "custom/github", "custom/updates", "network", "custom/audio-output", "pulseaudio", "clock"],
 
   "cpu": {
     "interval": 10,
@@ -35,6 +35,22 @@
     "max-length": 100
   },
 
+  "custom/ha-bedroom-light": {
+    "exec": "$HOME/.config/waybar/ha-bedroom-light.sh",
+    "on-click": "$HOME/.config/waybar/ha-bedroom-light.sh toggle; pkill -RTMIN+8 waybar",
+    "interval": 30,
+    "signal": 8,
+    "return-type": "json",
+    "tooltip": true
+  },
+  "custom/audio-output": {
+    "exec": "$HOME/.config/waybar/audio-output-toggle.sh",
+    "on-click": "$HOME/.config/waybar/audio-output-toggle.sh toggle; pkill -RTMIN+9 waybar",
+    "interval": 15,
+    "signal": 9,
+    "return-type": "json",
+    "tooltip": true
+  },
   "custom/github": {
     "format": "<span size='14000'>  </span>{text}",
     "interval": 300,

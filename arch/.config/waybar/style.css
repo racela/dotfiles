@@ -97,6 +97,8 @@ window#waybar.empty #window {
 }
 
 #pulseaudio,
+#custom-ha-bedroom-light,
+#custom-audio-output,
 #custom-github,
 #custom-updates,
 #custom-spotify,
@@ -124,6 +126,17 @@ window#waybar.empty #window {
   background: @nord-night-2;
 }
 
+/* Fixed content widths so the button doesn't resize when its icon glyph
+   changes (different Nerd Font icons have different advance widths, even
+   within the same font/size) */
+#custom-audio-output {
+  min-width: 16px;
+}
+
+#pulseaudio {
+  min-width: 58px;
+}
+
 #custom-wlogout {
   font-size: 20px;
   color: #1793d1;
@@ -138,6 +151,14 @@ window#waybar.empty #window {
   background: @nord-frost-3;
   color: @nord-night-1;
 
+}
+
+#custom-ha-bedroom-light.on {
+  color: #ebcb8b;
+}
+
+#custom-ha-bedroom-light.off {
+  color: @overlay0;
 }
 
 tooltip {
