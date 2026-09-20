@@ -51,6 +51,8 @@ local menu        = "wofi --show drun"
 
 -- See https://wiki.hypr.land/Configuring/Basics/Autostart/
 hl.on("hyprland.start", function()
+    -- Initial focus lands on the TV's empty workspace 11; start on the desk instead.
+    hl.dispatch(hl.dsp.focus({ workspace = 2 }))
     hl.exec_cmd("waybar & swaync & hypridle & hyprpaper & hyprsunset & blueman-applet")
     hl.exec_cmd("[workspace 1 silent] chromium")
     hl.exec_cmd("[workspace 2 silent] ghostty")
@@ -311,6 +313,15 @@ hl.window_rule({
     },
 
     no_focus = true,
+})
+
+-- The exec rule at startup only covers Steam's first window; it opens several
+-- (login, main, Big Picture), so pin them all to the TV without stealing focus.
+hl.window_rule({
+    name  = "steam-on-tv",
+    match = { class = "^steam$" },
+
+    workspace = "11 silent",
 })
 
 hl.window_rule({
