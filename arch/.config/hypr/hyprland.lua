@@ -51,7 +51,7 @@ local menu        = "wofi --show drun"
 
 -- See https://wiki.hypr.land/Configuring/Basics/Autostart/
 hl.on("hyprland.start", function()
-    hl.exec_cmd("waybar & swaync & hypridle & hyprpaper & hyprsunset")
+    hl.exec_cmd("waybar & swaync & hypridle & hyprpaper & hyprsunset & blueman-applet")
     hl.exec_cmd("[workspace 1 silent] chromium")
     hl.exec_cmd("[workspace 2 silent] ghostty")
     hl.exec_cmd("[workspace 3 silent] spotify-launcher")

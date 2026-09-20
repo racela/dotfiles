@@ -3,7 +3,7 @@
 
   "modules-left": ["custom/wlogout", "hyprland/workspaces", "cpu", "memory", "custom/spotify"],
   "modules-center": ["hyprland/window"],
-  "modules-right": ["custom/ha-bedroom-light", "custom/github", "custom/updates", "network", "custom/audio-output", "pulseaudio", "clock"],
+  "modules-right": ["custom/ha-bedroom-light", "custom/github", "custom/updates", "network", "bluetooth", "custom/audio-output", "pulseaudio", "clock"],
 
   "cpu": {
     "interval": 10,
@@ -76,6 +76,16 @@
     "format-disconnected": "<span size='13000' foreground='#5e81ac'>  </span>Disconnected",
     "tooltip-format-ethernet": "Connected via Ethernet\nInterface: {ifname}\nIP: {ipaddr}\nGateway: {gwaddr}",
     "tooltip-format-wifi": "Signal Strength: {signalStrength}%"
+  },
+  "bluetooth": {
+    "format": "<span size='13000'>󰂯</span>",
+    "format-off": "<span size='13000'>󰂲</span>",
+    "format-disabled": "<span size='13000'>󰂲</span>",
+    "format-connected": "<span size='13000'>󰂱</span> {num_connections}",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "on-click": "blueman-manager"
   },
   "pulseaudio": {
     "format": "{icon} {volume}%",

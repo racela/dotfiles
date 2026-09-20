@@ -3,6 +3,9 @@ amd-ucode
 base
 base-devel
 bind
+blueman
+bluez
+bluez-utils
 brightnessctl
 btrfs-progs
 chromium

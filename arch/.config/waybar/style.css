@@ -113,6 +113,7 @@ window#waybar.empty #window {
 #wireplumber,
 #tray,
 #network,
+#bluetooth,
 #mode,
 #scratchpad {
   margin-top: 6px;
