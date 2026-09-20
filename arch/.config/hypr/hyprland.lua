@@ -58,6 +58,12 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("[workspace 11 silent] steam")
 end)
 
+-- Waybar/hyprpaper go blank on the desk monitor after a hotplug (e.g. the TV),
+-- so recreate them once the new monitor has settled.
+local refresh_bars = "$HOME/.config/hypr/scripts/refresh-bars.sh"
+hl.on("monitor.added",   function() hl.exec_cmd(refresh_bars) end)
+hl.on("monitor.removed", function() hl.exec_cmd(refresh_bars) end)
+
 
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
