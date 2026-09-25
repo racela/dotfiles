@@ -247,6 +247,16 @@ hl.bind(mainMod .. " + SHIFT + S",   hl.dsp.exec_cmd("hyprshot -m region --freez
 hl.bind(mainMod .. " + ALT + T",           hl.dsp.exec_cmd("~/.config/hypr/scripts/toggle-tv-audio.sh"))
 -- Move the focused window to the TV's workspace
 hl.bind(mainMod .. " + ALT + SHIFT + T",   hl.dsp.window.move({ workspace = 11 }))
+-- Launch Steam on the desk monitor (workspace 4) instead of the TV
+hl.bind(mainMod .. " + ALT + S",           hl.dsp.exec_cmd("~/.config/hypr/scripts/steam-desk.sh"))
+
+-- Steam games on the TV's workspace play through the TV's audio, and audio
+-- returns to the desk speakers when they close (see scripts/game-audio.sh).
+local game_audio = "$HOME/.config/hypr/scripts/game-audio.sh"
+hl.on("window.open",              function() hl.exec_cmd(game_audio) end)
+hl.on("window.class",             function() hl.exec_cmd(game_audio) end)
+hl.on("window.close",             function() hl.exec_cmd(game_audio) end)
+hl.on("window.move_to_workspace", function() hl.exec_cmd(game_audio) end)
 
 -- Move focus with mainMod + hjkl
 hl.bind(mainMod .. " + h",           hl.dsp.focus({ direction = "left"  }))
@@ -317,7 +327,9 @@ hl.window_rule({
 
 -- The exec rule at startup only covers Steam's first window; it opens several
 -- (login, main, Big Picture), so pin them all to the TV without stealing focus.
-hl.window_rule({
+-- Global so scripts/steam-desk.sh can switch it off (via `hyprctl repl`) to
+-- launch Steam on the desk monitor instead.
+steam_tv_rule = hl.window_rule({
     name  = "steam-on-tv",
     match = { class = "^steam$" },
 

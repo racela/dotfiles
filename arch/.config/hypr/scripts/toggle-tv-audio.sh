@@ -4,6 +4,11 @@
 # of these HDMI/DP outputs at a time, so switching requires flipping its ACP
 # profile, not just the default sink.
 #
+# Usage: toggle-tv-audio.sh [toggle|tv|desk] [--no-focus]
+#   toggle (default)  flip between TV and desk
+#   tv / desk         go to that mode explicitly (used by game-audio.sh)
+#   --no-focus        switch audio only, leave workspace focus alone
+#
 # Which profile each display lands on depends on the GPU audio pin the driver
 # assigned it. With both connected the desk monitor is extra1 and the TV is
 # plain hdmi-stereo, but with the TV off/unplugged the desk monitor can come
@@ -47,20 +52,36 @@ move_streams_to() {
     done
 }
 
+target=${1:-toggle}
+focus=true
+[ "${2:-}" = "--no-focus" ] && focus=false
+
 # TV mode needs both profiles available (desk monitor on extra1, TV on
 # hdmi-stereo); if not, there's no TV audio to go to, so fall back to desk mode
-# on whichever profile the desk monitor actually has.
-if [ "$current_profile" = "$TV_PROFILE" ] || ! has_profile "$TV_PROFILE" || ! has_profile "$SPEAKER_PROFILE"; then
+# on whichever profile the desk monitor actually has (or do nothing if the TV
+# was asked for explicitly).
+case "$target" in
+    tv)     go_tv=true ;;
+    desk)   go_tv=false ;;
+    toggle) [ "$current_profile" = "$TV_PROFILE" ] && go_tv=false || go_tv=true ;;
+    *)      echo "usage: $0 [toggle|tv|desk] [--no-focus]" >&2; exit 2 ;;
+esac
+if $go_tv && { ! has_profile "$TV_PROFILE" || ! has_profile "$SPEAKER_PROFILE"; }; then
+    [ "$target" = "tv" ] && exit 0
+    go_tv=false
+fi
+
+if $go_tv; then
+    sink=$(activate_profile "$TV_PROFILE")
+    workspace=$TV_WORKSPACE
+else
     desk_profile=$SPEAKER_PROFILE
     has_profile "$desk_profile" || desk_profile=$(awk 'NR==1 {print $2}' <<<"$available")
     [ -n "$desk_profile" ] || exit 1
     sink=$(activate_profile "$desk_profile")
-    pactl set-default-sink "$sink"
-    move_streams_to "$sink"
-    hyprctl repl "return hl.dispatch(hl.dsp.focus({workspace = $HOME_WORKSPACE}))" >/dev/null
-else
-    sink=$(activate_profile "$TV_PROFILE")
-    pactl set-default-sink "$sink"
-    move_streams_to "$sink"
-    hyprctl repl "return hl.dispatch(hl.dsp.focus({workspace = $TV_WORKSPACE}))" >/dev/null
+    workspace=$HOME_WORKSPACE
 fi
+pactl set-default-sink "$sink"
+move_streams_to "$sink"
+$focus && hyprctl repl "return hl.dispatch(hl.dsp.focus({workspace = $workspace}))" >/dev/null
+exit 0
