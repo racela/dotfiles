@@ -138,8 +138,8 @@ To update deliberately:
 With Python 3, GNU Stow, Bash and Zsh installed:
 
 ```sh
-bash -n bootstrap.sh scripts/install-plugins.sh common/.config/ghostty/startup.sh
-zsh -n common/.config/zsh/rc.zsh arch/.zshrc mac/.zshrc
+for file in bootstrap.sh scripts/install-plugins.sh common/.config/ghostty/startup.sh; do bash -n "$file"; done
+for file in common/.config/zsh/rc.zsh arch/.zshrc mac/.zshrc; do zsh -n "$file"; done
 python3 -m unittest discover -s tests -v
 ```
 

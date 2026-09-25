@@ -41,7 +41,7 @@ if [ "$EUID" = 0 ]; then
     echo 'Run this script as your normal user, without sudo.' >&2; exit 1
 fi
 if [ "${XDG_CONFIG_HOME:-$HOME/.config}" != "$HOME/.config" ]; then
-    echo 'These Stow packages require XDG_CONFIG_HOME=$HOME/.config (or unset).' >&2; exit 1
+    echo "These Stow packages require XDG_CONFIG_HOME=$HOME/.config (or unset)." >&2; exit 1
 fi
 run() {
     printf '+'; printf ' %q' "$@"; printf '\n'
