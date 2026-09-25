@@ -1,0 +1,10 @@
+# Destination relative to HOME | HTTPS repository | exact commit (whitespace separated)
+.oh-my-zsh https://github.com/ohmyzsh/ohmyzsh.git b54a71977574cfcf659cc2f15a5e6422f17a8da7
+.oh-my-zsh/custom/plugins/zsh-autosuggestions https://github.com/zsh-users/zsh-autosuggestions.git 85919cd1ffa7d2d5412f6d3fe437ebdbeeec4fc5
+.oh-my-zsh/custom/plugins/zsh-syntax-highlighting https://github.com/zsh-users/zsh-syntax-highlighting.git 5eb677bb0fa9a3e60f0eff031dc13926e093df92
+.tmux/plugins/tpm https://github.com/tmux-plugins/tpm.git 99469c4a9b1ccf77fade25842dc7bafbc8ce9946
+.tmux/plugins/tmux-sensible https://github.com/tmux-plugins/tmux-sensible.git 25cb91f42d020f675bb0a2ce3fbd3a5d96119efa
+.tmux/plugins/vim-tmux-navigator https://github.com/christoomey/vim-tmux-navigator.git c45243dc1f32ac6bcf6068e5300f3b2b237e576a
+.tmux/plugins/nord-tmux https://github.com/arcticicestudio/nord-tmux.git f7b6da07ab55fe32ee5f7d62da56d8e5ac691a92
+.tmux/plugins/tmux-resurrect https://github.com/tmux-plugins/tmux-resurrect.git cff343cf9e81983d3da0c8562b01616f12e8d548
+.tmux/plugins/tmux-continuum https://github.com/tmux-plugins/tmux-continuum.git 0698e8f4b17d6454c71bf5212895ec055c578da0

@@ -1,0 +1,23 @@
+# Portable terminal/editor dependencies, not a whole-system package export.
+base-devel
+curl
+fd
+fzf
+ghostty
+git
+htop
+jq
+neovim
+nodejs
+npm
+python
+ripgrep
+starship
+stow
+tmux
+ttc-iosevka
+unzip
+vim
+yazi
+zoxide
+zsh

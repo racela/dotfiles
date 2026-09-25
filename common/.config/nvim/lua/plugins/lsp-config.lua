@@ -11,7 +11,7 @@ return {
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"lua_ls",
-					"docker_language_server",
+					"dockerls",
 					"jsonls",
 					"terraformls",
 					"yamlls",
@@ -31,8 +31,7 @@ return {
 			vim.lsp.config("lua_ls", { capabilities = capabilities })
 			vim.lsp.config("dockerls", { capabilities = capabilities })
 			vim.lsp.config("jsonls", { capabilities = capabilities })
-      -- Override command to fix autocompletions
-			vim.lsp.config("terraformls", { capabilities = capabilities, cmd = { "/opt/homebrew/bin/terraform-ls", "serve" } })
+			vim.lsp.config("terraformls", { capabilities = capabilities, cmd = { "terraform-ls", "serve" } })
 			vim.lsp.config("yamlls", { capabilities = capabilities })
 			vim.lsp.config("gh_actions_ls", { capabilities = capabilities })
 			vim.lsp.config("helm_ls", { capabilities = capabilities })

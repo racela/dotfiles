@@ -1,0 +1,25 @@
+name: Check dotfiles
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  bootstrap:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install test tools (Linux)
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y stow zsh shellcheck
+      - name: Install test tools (macOS)
+        if: runner.os == 'macOS'
+        run: brew install stow shellcheck
+      - name: Check shell syntax and lint bootstrap
+        run: |
+          bash -n bootstrap.sh scripts/install-plugins.sh common/.config/ghostty/startup.sh
+          zsh -n common/.config/zsh/rc.zsh arch/.zshrc mac/.zshrc
+          shellcheck bootstrap.sh scripts/install-plugins.sh common/.config/ghostty/startup.sh
+      - name: Test installation without modifying the runner's home
+        run: python3 -m unittest discover -s tests -v
